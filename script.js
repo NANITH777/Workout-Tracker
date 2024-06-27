@@ -103,7 +103,34 @@ class App {
   }
 
   _newWorkout(e) {
+    const validInputs = (...inputs) =>
+      inputs.every(inp => Number.isFinite(inp));
     e.preventDefault();
+
+    //Get data from form
+    const type = inputType.value;
+    const distance = +inputDistance.value;
+    const duration = +inputDuration.value;
+
+    //if workout is running, create running object
+    if (type === 'running') {
+      const cadence = +inputCadence.value;
+
+      //Check if data is valid
+      if (
+        /*!Number.isFinite(distance) ||
+        !Number.isFinite(cadence) ||
+        !Number.isFinite(duration)*/
+        !validInputs(distance, cadence, duration)
+      ) {
+        return alert('Inputs have to be positive numbers');
+      }
+    }
+
+    //if workout is cycling, create cycling object
+    if (type === 'cycling') {
+      const elevation = +inputElevation.value;
+    }
 
     inputDistance.value =
       inputDuration.value =
