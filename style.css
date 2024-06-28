@@ -1,6 +1,7 @@
 :root {
   --color-brand--1: #ffb545;
-  --color-brand--2: #00c46a;
+  --color-brand--2: #1746e0;
+  --color-brand--3: #0e338c;
 
   --color-dark--1: #2d3439;
   --color-dark--2: #42484d;
@@ -21,7 +22,7 @@ html {
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
   color: var(--color-light--2);
   font-weight: 400;
   line-height: 1.6;
@@ -49,10 +50,40 @@ a:visited {
   flex-direction: column;
 }
 
+.sidebar h1 {
+  color: var(--color-light--1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.reset__button {
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.reset__button:hover {
+  background-color: var(--color-brand--3);
+}
+
 .logo {
-  height: 5.2rem;
-  align-self: center;
-  margin-bottom: 4rem;
+  height: 50px;
+}
+
+.logo img {
+  height: 100%;
 }
 
 .workouts {
