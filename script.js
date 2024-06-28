@@ -377,7 +377,7 @@ class App {
     setTimeout(() => {
       messageElement.classList.add('hidden');
       messageElement.classList.remove(type);
-    }, 5000); // Hide message after 3 seconds
+    }, 4000); // Hide message after 4 seconds
   }
 }
 
