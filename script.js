@@ -8,6 +8,8 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 const resetBtn = document.querySelector('.reset__button--reset');
+const messageContainer = document.querySelector('.message-container');
+const messageElement = messageContainer.querySelector('.message');
 
 class Workout {
   date = new Date();
@@ -363,17 +365,19 @@ class App {
   }
 
   _showMessage(message, type) {
-    const messageContainer = document.querySelector('.message-container');
-    const messageElement = messageContainer.querySelector('.message');
-
     messageElement.textContent = message;
     messageElement.classList.remove('hidden');
     messageElement.classList.add(type);
+    inputDistance.value =
+      inputDuration.value =
+      inputCadence.value =
+      inputElevation.value =
+        '';
 
     setTimeout(() => {
       messageElement.classList.add('hidden');
       messageElement.classList.remove(type);
-    }, 3000); // Hide message after 3 seconds
+    }, 5000); // Hide message after 3 seconds
   }
 }
 
