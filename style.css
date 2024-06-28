@@ -229,6 +229,29 @@ a:visited {
   background-color: var(--color-light--1);
 }
 
+/*Messages*/
+.message-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--color-brand--2);
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Popup width is defined in JS using options */
 .leaflet-popup .leaflet-popup-content-wrapper {
   background-color: var(--color-dark--1);

@@ -98,7 +98,8 @@ class App {
       navigator.geolocation.getCurrentPosition(
         this._loadMap.bind(this),
         function () {
-          alert('Could not get your position');
+          this._showMessage('Could not get your position', 'error');
+          return;
         }
       );
     }
@@ -177,7 +178,8 @@ class App {
         !validInputs(distance, duration, cadence) ||
         !positiveInputs(distance, duration, cadence)
       ) {
-        return alert('Inputs have to be positive numbers');
+        this._showMessage('Inputs have to be positive numbers', 'error');
+        return;
       }
 
       workout = new Running([lat, lng], distance, duration, cadence);
@@ -191,7 +193,8 @@ class App {
         !validInputs(distance, duration, elevation) ||
         !positiveInputs(distance, duration)
       ) {
-        return alert('Inputs have to be positive numbers');
+        this._showMessage('Inputs have to be positive numbers', 'error');
+        return;
       }
 
       workout = new Cycling([lat, lng], distance, duration, elevation);
@@ -212,6 +215,9 @@ class App {
 
     //Set local storage to all workout
     this._setLocalStorage();
+
+    // Show confirmation message
+    this._showMessage('Workout added successfully!', 'success');
   }
 
   _renderWorkoutMarker(workout) {
@@ -315,6 +321,9 @@ class App {
 
     this.#workouts = data;
 
+    // Sort workouts by distance
+    this.#workouts.sort((a, b) => a.distance - b.distance);
+
     this.#workouts.forEach(work => {
       this._renderWorkout(work);
     });
@@ -351,6 +360,20 @@ class App {
   reset() {
     localStorage.removeItem('workouts');
     location.reload();
+  }
+
+  _showMessage(message, type) {
+    const messageContainer = document.querySelector('.message-container');
+    const messageElement = messageContainer.querySelector('.message');
+
+    messageElement.textContent = message;
+    messageElement.classList.remove('hidden');
+    messageElement.classList.add(type);
+
+    setTimeout(() => {
+      messageElement.classList.add('hidden');
+      messageElement.classList.remove(type);
+    }, 3000); // Hide message after 3 seconds
   }
 }
 
