@@ -1,4 +1,6 @@
-# **Workout Tracker**
+# **FitTrack, your Workout Tracker**
+
+**Live Demo:** [FitTrack](https://fittrack-nanith.vercel.app)
 
 ## **Table of Contents**
 
@@ -8,7 +10,7 @@
 - [Usage](#usage)
 - [Code Structure](#code-structure)
 - [Technologies Used](#technologies-used)
-- [Contributing](#Contributing)
+- [Contributing](#contributing)
 
 ## **Introduction**
 
