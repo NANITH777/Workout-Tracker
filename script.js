@@ -335,11 +335,6 @@ class App {
       this._removeMarker(workoutId);
       this._setLocalStorage();
     }
-
-    // Handle edit workout
-    if (e.target.classList.contains('workout__edit')) {
-      console.log(`Edit workout with ID: ${workoutId}`);
-    }
   }
 
   _removeMarker(workoutId) {
